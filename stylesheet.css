@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?&family=Red+Hat+Display:wght@500;700;900&display=swap');
+
+:root {
+  --color-pale-blue: hsl(225, 100%, 94%);
+  --color-bright-blue: hsl(245, 75%, 52%);
+
+  --color-very-pale-blue: hsl(225, 100%, 98%);
+  --color-desaturated-blue: hsl(224, 23%, 55%);
+
+  --color-dark-blue: hsl(223, 47%, 23%);
+
+  --ff-main: 'Red Hat Display', display;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  min-height: 100vh;
+  gap: 1rem;
+
+  font-family: var(--ff-main);
+  background-color: var(--color-pale-blue);
+}
+
+main {
+  padding: 1.5em;
+}
+
+/* ----- Background ----- */
+.background {
+  display: none;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: fit-content;
+}
+
+.background-mobile {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: fit-content;
+}
+
+/* ----- Card ----- */
+.card {
+  display: grid;
+  font-size: 16px;
+
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0 1em 2em hsla(216, 79%, 84%, 0.5);
+  border-radius: 1.3em;
+  overflow: hidden;
+}
+
+.card__img {
+  max-width: 100%;
+  height: fit-content;
+}
+
+.card__content {
+  display: grid;
+  justify-items: center;
+  gap: 1.5em;
+  padding: 1.5em;
+  text-align: center;
+}
+
+.card__content__title {
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: var(--color-dark-blue);
+}
+
+.card__content__info {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-desaturated-blue);
+  max-width: 16rem;
+}
+
+.card__content__price {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  padding: 1em;
+  border-radius: 0.75em;
+  background-color: var(--color-very-pale-blue);
+}
+
+.card__content__price__info {
+  margin-right: auto;
+}
+
+.card__content__price__info p:nth-of-type(1) {
+  font-weight: 900;
+  color: var(--color-dark-blue);
+}
+
+.card__content__price__info p:nth-of-type(2) {
+  color: var(--color-desaturated-blue);
+}
+
+.card__content__price__button {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-bright-blue);
+}
+
+.card__content__price__button:hover,
+.card__content__price__button:focus {
+  color: hsl(245, 75%, 64%);
+  transition: color 0.35s ease-out;
+}
+
+.card__content__payment {
+  width: 100%;
+  padding: 1em;
+  border-radius: 0.75em;
+  font-weight: 900;
+  color: var(--color-very-pale-blue);
+  background-color: var(--color-bright-blue);
+  box-shadow: 0 0.75em 0.75em hsla(217, 42%, 73%, 0.5);
+  text-decoration: none;
+}
+
+.card__content__payment:hover,
+.card__content__payment:focus {
+  background-color: hsl(245, 76%, 60%);
+  transition: background-color 0.35s ease-out;
+}
+
+.card__content__cancel {
+  font-weight: 900;
+  color: var(--color-desaturated-blue);
+  text-decoration: none;
+  margin-bottom: 0.5em;
+}
+
+.card__content__cancel:hover,
+.card__content__cancel:focus {
+  color: var(--color-dark-blue);
+  transition: color 0.35s ease-out;
+}
+
+/* ----- Footer ----- */
+footer {
+  position: absolute;
+  bottom: 1rem;
+}
+
+.attribution {
+  font-size: 11px;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+.attribution a:visited {
+  color: hsl(270, 100%, 60%);
+}
+
+/* ----- Desktop ----- */
+@media (min-width: 43.75em) {
+  /* ----- Background ----- */
+  .background {
+    display: initial;
+  }
+
+  .background-mobile {
+    display: none;
+  }
+
+  /* ----- Card ----- */
+  .card {
+    max-width: 30rem;
+  }
+
+  .card__content {
+    padding: 3em;
+  }
+
+  .card__content__title {
+    font-size: 1.75rem;
+  }
+
+  .card__content__info {
+    font-size: 1rem;
+    max-width: 19rem;
+  }
+
+  .card__content__price {
+    padding: 1.5em;
+  }
+
+  .card__content__price__info p {
+    font-size: 1.05rem;
+  }
+  
+  .card__content__cancel {
+    margin-top: 0.25em;
+    margin-bottom: initial;
+  }
+}
